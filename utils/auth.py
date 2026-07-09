@@ -66,12 +66,12 @@ def check_auth():
         
         # Admin / developer credentials help drawer at the footer of landing page
         with st.expander("🛠️ Developer Credentials & Direct Portal Links"):
-            st.markdown("""
+            st.markdown(f"""
                 <div style="padding: 10px; border-radius: 8px; border: 1px dashed #ccc; margin-bottom:10px;">
                      <p style="margin:0;font-size:14px;color:gray;">
                         If you need to login directly or simulate Google Login, use the link below:
-                        <a href="http://localhost:5000" target="_self" style="color:#0F6E84; font-weight:700; text-decoration:none;">
-                            Direct Portal Link (http://localhost:5000)
+                        <a href="{LOGIN_URL}" target="_self" style="color:#0F6E84; font-weight:700; text-decoration:none;">
+                            Direct Portal Link ({LOGIN_URL})
                         </a>
                     </p>
                 </div>

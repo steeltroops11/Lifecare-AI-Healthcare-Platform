@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
-DB_PATH = "data/healthcare.db"
+DB_PATH = os.getenv("DB_PATH", "data/healthcare.db")
 USERS_JSON_PATH = "login/users.json"
 
 def get_connection():
@@ -200,19 +200,19 @@ def init_db():
     if cursor.fetchone()[0] == 0:
         # Default Admin Account
         cursor.execute("""
-        INSERT INTO users (email, password, role, name, patient_id, age, blood_group, emergency_contact, weight_kg, height_cm)
+        INSERT OR IGNORE INTO users (email, password, role, name, patient_id, age, blood_group, emergency_contact, weight_kg, height_cm)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, ("admin@healthcare.com", generate_password_hash("admin123"), "Admin", "System Admin", None, None, None, None, None, None))
         
         # Default Doctor Account
         cursor.execute("""
-        INSERT INTO users (email, password, role, name, patient_id, age, blood_group, emergency_contact, weight_kg, height_cm)
+        INSERT OR IGNORE INTO users (email, password, role, name, patient_id, age, blood_group, emergency_contact, weight_kg, height_cm)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, ("doctor@healthcare.com", generate_password_hash("doctor123"), "Doctor", "Dr. Navish", None, None, None, None, None, None))
         
         # Default Patient Account
         cursor.execute("""
-        INSERT INTO users (email, password, role, name, patient_id, age, blood_group, emergency_contact, weight_kg, height_cm, allergies, medications, family_history, smoking, alcohol, prev_diseases, vaccinations)
+        INSERT OR IGNORE INTO users (email, password, role, name, patient_id, age, blood_group, emergency_contact, weight_kg, height_cm, allergies, medications, family_history, smoking, alcohol, prev_diseases, vaccinations)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             "patient@healthcare.com", 

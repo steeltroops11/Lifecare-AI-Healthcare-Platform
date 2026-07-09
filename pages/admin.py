@@ -93,7 +93,7 @@ def show():
         st.subheader("Export Platform Database")
         st.write("Export entire platform operational records directly. Helpful for off-site backup storage or compliance audits.")
         
-        db_file = "data/healthcare.db"
+        db_file = db.DB_PATH
         if os.path.exists(db_file):
             with open(db_file, "rb") as f:
                 db_bytes = f.read()

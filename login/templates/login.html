@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthcare Analytics System Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div>
+                    <h2>Healthcare Analytics System</h2>
+                    <p>Doctor & Patient Portal</p>
+                </div>
+            </div>
+
+            <div class="tag">AI Powered Healthcare Platform</div>
+
+            <h1>Welcome to <br>Healthcare Analytics System</h1>
+            <p class="subtitle">
+                A smart healthcare analytics platform for doctors and patients to analyze
+                disease risks, generate health reports, and access predictive insights securely.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3>Multi-disease Risk Prediction</h3>
+                        <p>Diabetes, Heart Disease, Kidney Disease & Readmission analysis.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-file-medical"></i>
+                    </div>
+                    <div>
+                        <h3>Health Reports & Insights</h3>
+                        <p>Generate detailed summaries, recommendations and reports.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <div>
+                        <h3>Doctor & Patient Access</h3>
+                        <p>Separate role-based portal for healthcare professionals and patients.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <div>
+                        <h3>Secure & Trusted</h3>
+                        <p>Designed for protected healthcare workflows and future secure authentication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+            <div class="login-card">
+                <div class="top-icon">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+
+                <h2>Login to Your Account</h2>
+                <p class="login-subtitle">Choose your role and sign in to continue</p>
+
+                <div class="role-switch">
+                    <button type="button" class="role-btn {% if selected_role == 'Doctor' %}active{% endif %}"
+                        data-role="Doctor">
+                        <span class="role-emoji">👨‍⚕️</span> Doctor
+                    </button>
+
+                    <button type="button" class="role-btn {% if selected_role != 'Doctor' %}active{% endif %}"
+                        data-role="Patient">
+                        <span class="role-emoji">🧑</span> Patient
+                    </button>
+                </div>
+
+                <form method="POST" id="loginForm">
+                    <input type="hidden" name="role" id="roleInput"
+                        value="{{ selected_role if selected_role else 'Patient' }}">
+
+                    <label>Email Address</label>
+                    <div class="input-box">
+                        <span><i class="fa-regular fa-envelope"></i></span>
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <label>Password</label>
+                    <div class="input-box">
+                        <span><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" name="password" id="passwordField" placeholder="Enter your password"
+                            required>
+                        <button type="button" class="eye-btn" id="togglePassword">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+
+                    {% if error %}
+                    <p class="error-text">{{ error }}</p>
+                    {% endif %}
+
+                    <div class="login-options">
+                        <label class="remember">
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+
+                    <button type="submit" class="signin-btn">
+                        <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                    </button>
+                    
+                    <a href="{{ url_for('google_login') }}" class="google-btn" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:64px;border:1px solid #d2e2e9;border-radius:20px;background:white;color:#12384a;font-size:18px;font-weight:700;text-decoration:none;margin-top:10px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.02);transition:all 0.2s;">
+                        <i class="fa-brands fa-google" style="color:#EA4335;"></i> Sign in with Google
+                    </a>
+                </form>
+
+                <div class="divider-text">OR</div>
+
+                <div class="demo-box">
+                    <h4>Demo Credentials</h4>
+                    <p><strong>Doctor:</strong> doctor@healthcare.com / doctor123</p>
+                    <p><strong>Patient:</strong> patient@healthcare.com / patient123</p>
+                </div>
+
+                <p class="signup-link-text">
+                    Don’t have a patient account?
+                    <a href="{{ url_for('signup') }}">Create Account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

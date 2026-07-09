@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  streamlit-portal:
+    build: .
+    container_name: streamlit-portal
+    ports:
+      - "8501:8501"
+    environment:
+      - ORS_API_KEY=${ORS_API_KEY}
+    volumes:
+      - ./data:/app/data
+    restart: always
+    depends_on:
+      - auth-portal
+
+  auth-portal:
+    build: .
+    container_name: auth-portal
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    command: ["python", "login/auth_app.py"]
+    restart: always

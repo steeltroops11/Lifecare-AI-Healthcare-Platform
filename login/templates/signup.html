@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Create Patient Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <div class="auth-single-wrapper">
+        <div class="auth-card">
+            <div class="top-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <h2>Create Patient Account</h2>
+            <p class="login-subtitle">Register to access the healthcare analytics portal</p>
+
+            <form method="POST">
+                <label>Full Name</label>
+                <div class="input-box">
+                    <span><i class="fa-regular fa-user"></i></span>
+                    <input type="text" name="full_name" placeholder="Enter your full name" required>
+                </div>
+
+                <label>Email Address</label>
+                <div class="input-box">
+                    <span><i class="fa-regular fa-envelope"></i></span>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <label>Password</label>
+                <div class="input-box">
+                    <span><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" name="password" placeholder="Create password" required>
+                </div>
+
+                <label>Confirm Password</label>
+                <div class="input-box">
+                    <span><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                </div>
+
+                {% if error %}
+                    <p class="error-text">{{ error }}</p>
+                {% endif %}
+
+                {% if success %}
+                    <p class="success-text">{{ success }}</p>
+                {% endif %}
+
+                <button type="submit" class="signin-btn">
+                    <i class="fa-solid fa-user-plus"></i> Create Account
+                </button>
+            </form>
+
+            <p class="signup-link-text">
+                Already have an account?
+                <a href="{{ url_for('login') }}">Back to Login</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

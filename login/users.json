@@ -1,0 +1,12 @@
+{
+  "doctor@healthcare.com": {
+    "password": "doctor123",
+    "role": "Doctor",
+    "name": "Dr. Healthcare"
+  },
+  "patient@healthcare.com": {
+    "password": "patient123",
+    "role": "Patient",
+    "name": "Healthcare Patient"
+  }
+}

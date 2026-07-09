@@ -1,0 +1,11 @@
+.env
+client_secret*.json
+.streamlit/secrets.toml
+__pycache__/
+*.pyc
+venv/
+data/*.db
+data/*.log
+.claude/
+.pytest_cache/
+.ipynb_checkpoints/

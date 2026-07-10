@@ -8,6 +8,32 @@ from utils.pdf_generator import recommendations, generate_single_report_pdf
 from utils.recommendation_engine import get_recommendation
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #60A5FA;
+            --accent-light: #93C5FD;
+            --accent-dark: #2563EB;
+            --accent-bg: rgba(96, 165, 250, 0.12);
+            --nav-hover: rgba(96, 165, 250, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #2563EB;
+            --accent-light: #60A5FA;
+            --accent-dark: #1D4ED8;
+            --accent-bg: rgba(37, 99, 235, 0.08);
+            --nav-hover: rgba(37, 99, 235, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("🧬 Chronic Kidney Disease Risk Screening")
 
     # ---- 1. Patient Selection / Info ----

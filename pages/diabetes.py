@@ -8,6 +8,32 @@ from utils.pdf_generator import recommendations, generate_single_report_pdf
 from utils.recommendation_engine import get_recommendation
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #FBBF24;
+            --accent-light: #FDE047;
+            --accent-dark: #D97706;
+            --accent-bg: rgba(251, 191, 36, 0.12);
+            --nav-hover: rgba(251, 191, 36, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #D97706;
+            --accent-light: #F59E0B;
+            --accent-dark: #92400E;
+            --accent-bg: rgba(217, 119, 6, 0.08);
+            --nav-hover: rgba(217, 119, 6, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("🩺 Diabetes Risk Screening")
 
     # ---- 1. Patient Selection / Info (Priority 2) ----

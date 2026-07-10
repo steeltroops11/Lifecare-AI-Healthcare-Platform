@@ -106,6 +106,32 @@ def get_assistant_response(query, user_data=None, predictions=None):
         )
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #38BDF8;
+            --accent-light: #7DD3FC;
+            --accent-dark: #0284C7;
+            --accent-bg: rgba(56, 189, 248, 0.12);
+            --nav-hover: rgba(56, 189, 248, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #0284C7;
+            --accent-light: #38BDF8;
+            --accent-dark: #0369A1;
+            --accent-bg: rgba(2, 132, 199, 0.08);
+            --nav-hover: rgba(2, 132, 199, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("🤖 AI Clinical Assistant")
     st.write("Ask our context-aware clinical assistant about reducing risks, preventative guidelines, or your medical dossier details.")
 

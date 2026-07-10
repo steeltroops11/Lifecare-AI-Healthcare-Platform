@@ -12,6 +12,32 @@ import utils.database as db
 
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #A78BFA;
+            --accent-light: #C084FC;
+            --accent-dark: #7C3AED;
+            --accent-bg: rgba(167, 139, 250, 0.12);
+            --nav-hover: rgba(167, 139, 250, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #7C3AED;
+            --accent-light: #A78BFA;
+            --accent-dark: #5B21B6;
+            --accent-bg: rgba(124, 58, 237, 0.08);
+            --nav-hover: rgba(124, 58, 237, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("🏥 Smart Specialist Finder")
     st.caption("AI-powered nearby specialist search using OpenStreetMap — 100% free, no billing.")
 

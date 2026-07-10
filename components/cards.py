@@ -179,11 +179,11 @@ def welcome(name, role):
     """, unsafe_allow_html=True)
 
 
-def stat_card(title, value, icon="📊", color="#0F6E84"):
+def stat_card(title, value, icon="📊", color="var(--accent)"):
     st.markdown(f"""
     <div class="stat-card" style="border-left: 4px solid {color};">
         <div class="stat-card-inner">
-            <div class="stat-card-icon" style="background:{color}12;color:{color};">
+            <div class="stat-card-icon" style="background:color-mix(in srgb, {color} 10%, transparent);color:{color};">
                 {icon}
             </div>
             <div class="stat-card-content">

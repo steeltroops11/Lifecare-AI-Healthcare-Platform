@@ -55,6 +55,16 @@ def compile_patient_timeline(email):
     return events
 
 def show():
+    st.markdown("""
+        <style>
+        :root {
+            --accent: var(--primary);
+            --accent-light: var(--primary-light);
+            --accent-dark: var(--primary-dark);
+            --accent-bg: var(--nav-hover);
+        }
+        </style>
+    """, unsafe_allow_html=True)
     load_css()
 
     role = st.session_state.get("user_role", "Patient")
@@ -88,13 +98,13 @@ def show():
             # Large metrics row
             c1, c2, c3, c4 = st.columns(4)
             with c1:
-                doctor_metric_card("Active Patients", str(today_patients), "Scheduled & accepted today", "📅", "#0F6E84")
+                doctor_metric_card("Active Patients", str(today_patients), "Scheduled & accepted today", "📅", "var(--primary)")
             with c2:
-                doctor_metric_card("Pending Reports", str(pending_reports), "Awaiting review", "📄", "#1AA7C8")
+                doctor_metric_card("Pending Reports", str(pending_reports), "Awaiting review", "📄", "var(--info)")
             with c3:
-                doctor_metric_card("Critical Cases", str(critical_count), "Requires urgent check", "⚠️", "#EF4444")
+                doctor_metric_card("Critical Cases", str(critical_count), "Requires urgent check", "⚠️", "var(--danger)")
             with c4:
-                doctor_metric_card("Overall Accuracy", "96%", "ML models score average", "📊", "#22C55E")
+                doctor_metric_card("Overall Accuracy", "96%", "ML models score average", "📊", "var(--success)")
 
             st.divider()
 

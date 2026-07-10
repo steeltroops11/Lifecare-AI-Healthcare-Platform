@@ -11,6 +11,32 @@ from utils.pdf_generator import (
 import utils.database as db
 
 def show(page_title="📄 Healthcare Report Center"):
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #94A3B8;
+            --accent-light: #CBD5E1;
+            --accent-dark: #475569;
+            --accent-bg: rgba(148, 163, 184, 0.12);
+            --nav-hover: rgba(148, 163, 184, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #475569;
+            --accent-light: #64748B;
+            --accent-dark: #334155;
+            --accent-bg: rgba(71, 85, 105, 0.08);
+            --nav-hover: rgba(71, 85, 105, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header(page_title)
 
     role = st.session_state.get("user_role", "Patient")

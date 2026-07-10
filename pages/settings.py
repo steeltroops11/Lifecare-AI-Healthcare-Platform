@@ -3,6 +3,32 @@ import streamlit as st
 import utils.database as db
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #A1A1AA;
+            --accent-light: #D4D4D8;
+            --accent-dark: #52525B;
+            --accent-bg: rgba(161, 161, 170, 0.12);
+            --nav-hover: rgba(161, 161, 170, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #52525B;
+            --accent-light: #71717A;
+            --accent-dark: #3F3F46;
+            --accent-bg: rgba(82, 82, 91, 0.08);
+            --nav-hover: rgba(82, 82, 91, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("⚙️ Platform Settings & Customization")
     st.write("Customize your Lifecare interface preferences, notification alerts, and localization rules.")
 

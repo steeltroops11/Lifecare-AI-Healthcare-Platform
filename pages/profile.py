@@ -4,6 +4,32 @@ import utils.database as db
 from components.cards import patient_profile_card
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #818CF8;
+            --accent-light: #A5B4FC;
+            --accent-dark: #4F46E5;
+            --accent-bg: rgba(129, 140, 248, 0.12);
+            --nav-hover: rgba(129, 140, 248, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #4F46E5;
+            --accent-light: #818CF8;
+            --accent-dark: #3730A3;
+            --accent-bg: rgba(79, 70, 229, 0.08);
+            --nav-hover: rgba(79, 70, 229, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("👤 Profile & Clinical Details Management")
 
     email = st.session_state.get("user_email")

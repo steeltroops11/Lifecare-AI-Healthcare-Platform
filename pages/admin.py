@@ -10,6 +10,32 @@ def show():
         st.error("Access Denied: Administrative privileges required.")
         return
 
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #F87171;
+            --accent-light: #FCA5A5;
+            --accent-dark: #991B1B;
+            --accent-bg: rgba(248, 113, 113, 0.12);
+            --nav-hover: rgba(248, 113, 113, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #991B1B;
+            --accent-light: #EF4444;
+            --accent-dark: #7F1D1D;
+            --accent-bg: rgba(153, 27, 27, 0.08);
+            --nav-hover: rgba(153, 27, 27, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("🛡️ Platform Administration Console")
     st.write("Manage accounts, review system prediction logs, schedule appointments, and export diagnostics.")
 

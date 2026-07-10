@@ -8,6 +8,32 @@ from utils.pdf_generator import recommendations, generate_single_report_pdf
 from utils.recommendation_engine import get_recommendation
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #2DD4BF;
+            --accent-light: #6EE7B7;
+            --accent-dark: #0D9488;
+            --accent-bg: rgba(45, 212, 191, 0.12);
+            --nav-hover: rgba(45, 212, 191, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #0D9488;
+            --accent-light: #2DD4BF;
+            --accent-dark: #115E59;
+            --accent-bg: rgba(13, 148, 136, 0.08);
+            --nav-hover: rgba(13, 148, 136, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("🏥 Hospital Readmission Risk Prediction")
 
     # ---- 1. Patient Selection / Info ----

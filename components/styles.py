@@ -18,17 +18,17 @@ def load_app_css():
     tokens = """
         :root {
             --bg: #F8FAFC;
-            --bg-gradient: radial-gradient(circle at 5% 5%, rgba(20, 184, 166, 0.08) 0%, rgba(255, 255, 255, 0) 50%),
-                           radial-gradient(circle at 95% 95%, rgba(99, 102, 241, 0.06) 0%, rgba(255, 255, 255, 0) 50%),
+            --bg-gradient: radial-gradient(circle at 5% 5%, rgba(99, 102, 241, 0.08) 0%, rgba(255, 255, 255, 0) 50%),
+                           radial-gradient(circle at 95% 95%, rgba(20, 184, 166, 0.06) 0%, rgba(255, 255, 255, 0) 50%),
                            linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             --card: rgba(255, 255, 255, 0.85);
             --border: rgba(226, 232, 240, 0.8);
             --text: #0F172A;
             --text-soft: #64748B;
             --text-body: #334155;
-            --primary: #0D9488;
-            --primary-light: #14B8A6;
-            --primary-dark: #115E59;
+            --primary: #4F46E5;
+            --primary-light: #818CF8;
+            --primary-dark: #3730A3;
             --info: #3B82F6;
             --info-bg: rgba(59, 130, 246, 0.08);
             --success: #10B981;
@@ -39,12 +39,14 @@ def load_app_css():
             --danger-bg: rgba(239, 68, 68, 0.08);
             --purple: #8B5CF6;
             --purple-bg: rgba(139, 92, 246, 0.08);
-            --accent: #F59E0B;
-            --accent-bg: rgba(245, 158, 11, 0.08);
-            --nav-hover: rgba(13, 148, 136, 0.08);
-            --shadow: rgba(15, 23, 42, 0.04);
-            --shadow-strong: rgba(15, 23, 42, 0.08);
-            --sidebar-bg: linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 100%);
+            --accent: #4F46E5;
+            --accent-light: #818CF8;
+            --accent-dark: #3730A3;
+            --accent-bg: rgba(79, 70, 229, 0.08);
+            --nav-hover: rgba(79, 70, 229, 0.08);
+            --shadow: rgba(15, 23, 42, 0.03);
+            --shadow-strong: rgba(15, 23, 42, 0.06);
+            --sidebar-bg: linear-gradient(180deg, #F8FAFC 0%, #E2E8F0 100%);
             --sidebar-text: #334155;
             --sidebar-text-soft: #64748B;
         }
@@ -53,34 +55,36 @@ def load_app_css():
     if theme == "Midnight Cosmic (Dark)":
         tokens = """
             :root {
-                --bg: #0B0F19;
-                --bg-gradient: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0) 45%),
-                               radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.1) 0%, rgba(15, 23, 42, 0) 50%),
-                               linear-gradient(135deg, #0b0f19 0%, #111827 100%);
-                --card: rgba(17, 24, 39, 0.75);
-                --border: rgba(139, 92, 246, 0.2);
+                --bg: #090D1A;
+                --bg-gradient: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.12) 0%, rgba(15, 23, 42, 0) 45%),
+                               radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.08) 0%, rgba(15, 23, 42, 0) 50%),
+                               linear-gradient(135deg, #090d1a 0%, #0f172a 100%);
+                --card: rgba(15, 23, 42, 0.75);
+                --border: rgba(99, 102, 241, 0.2);
                 --text: #F8FAFC;
                 --text-soft: #94A3B8;
                 --text-body: #CBD5E1;
-                --primary: #8B5CF6;
-                --primary-light: #A78BFA;
-                --primary-dark: #4C1D95;
+                --primary: #818CF8;
+                --primary-light: #A5B4FC;
+                --primary-dark: #4F46E5;
                 --info: #60A5FA;
                 --info-bg: rgba(96, 165, 250, 0.12);
                 --success: #34D399;
                 --success-bg: rgba(52, 211, 153, 0.12);
-                --warning: #F59E0B;
-                --warning-bg: rgba(245, 158, 11, 0.12);
-                --danger: #F87171;
-                --danger-bg: rgba(248, 113, 113, 0.12);
+                --warning: #FBBF24;
+                --warning-bg: rgba(251, 191, 36, 0.12);
+                --danger: #FB7185;
+                --danger-bg: rgba(251, 113, 133, 0.12);
                 --purple: #C084FC;
                 --purple-bg: rgba(192, 132, 252, 0.12);
-                --accent: #F59E0B;
-                --accent-bg: rgba(245, 158, 11, 0.12);
-                --nav-hover: rgba(139, 92, 246, 0.15);
+                --accent: #818CF8;
+                --accent-light: #A5B4FC;
+                --accent-dark: #4F46E5;
+                --accent-bg: rgba(129, 140, 248, 0.12);
+                --nav-hover: rgba(129, 140, 248, 0.15);
                 --shadow: rgba(0, 0, 0, 0.3);
                 --shadow-strong: rgba(0, 0, 0, 0.5);
-                --sidebar-bg: linear-gradient(180deg, #111827 0%, #0B0F19 100%);
+                --sidebar-bg: linear-gradient(180deg, #0f172a 0%, #090D1A 100%);
                 --sidebar-text: #CBD5E1;
                 --sidebar-text-soft: #94A3B8;
             }
@@ -311,24 +315,40 @@ def load_app_css():
 
         /* ---- Polished Buttons & Form Submit Buttons ---- */
         .stButton>button, div[data-testid="stFormSubmitButton"] button {{
-            background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light)) !important;
             color: white !important;
-            border-radius: 12px !important;
-            border: none !important;
-            padding: 0.6rem 1.4rem !important;
+            border-radius: 30px !important;
+            border: 1.5px solid transparent !important;
+            padding: 0.6rem 1.6rem !important;
             font-weight: 700 !important;
             font-size: 14px !important;
-            letter-spacing: 0.2px !important;
+            letter-spacing: 0.3px !important;
             transition: all .25s cubic-bezier(.4,0,.2,1) !important;
-            box-shadow: 0 2px 8px var(--shadow) !important;
+            box-shadow: 0 4px 14px var(--shadow-strong) !important;
+            white-space: nowrap !important;
+            word-break: keep-all !important;
         }}
         .stButton>button:hover, div[data-testid="stFormSubmitButton"] button:hover {{
             transform: translateY(-2px) !important;
-            box-shadow: 0 6px 20px var(--shadow-strong) !important;
-            filter: brightness(1.06) !important;
+            box-shadow: 0 8px 24px var(--shadow-strong) !important;
+            filter: brightness(1.08) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
         }}
         .stButton>button:active, div[data-testid="stFormSubmitButton"] button:active {{
             transform: translateY(0) scale(.97) !important;
+        }}
+
+        /* Secondary Button (Active Theme Support) */
+        .stButton>button[kind="secondary"], .stButton>button[data-testid="baseButton-secondary"] {{
+            background: var(--card) !important;
+            color: var(--text-body) !important;
+            border: 1.5px solid var(--border) !important;
+            box-shadow: 0 2px 6px var(--shadow) !important;
+        }}
+        .stButton>button[kind="secondary"]:hover, .stButton>button[data-testid="baseButton-secondary"]:hover {{
+            background: var(--accent-bg, var(--nav-hover)) !important;
+            color: var(--accent, var(--primary)) !important;
+            border-color: var(--accent, var(--primary)) !important;
         }}
 
         /* ---- Top navbar ---- */
@@ -347,6 +367,7 @@ def load_app_css():
             font-size: 22px;
             font-weight: 800;
             color: var(--text);
+            font-family: 'Lora', serif;
         }}
         .top-navbar .nav-links {{
             display: flex;
@@ -368,73 +389,89 @@ def load_app_css():
             color: var(--primary);
         }}
 
-        /* ---- Horizontal Nav Pill Bar (Adjacent Sibling Override) ---- */
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock,
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] {{
+        /* ---- Horizontal Nav Pill Bar (Streamlit 1.58.0+ Sibling Overrides) ---- */
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"],
+        div[data-testid="element-container"]:has(#nav-container-marker) + div + div[data-testid="stHorizontalBlock"],
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="stHorizontalBlock"]:first-of-type,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] {{
             display: flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
             overflow-x: auto !important;
-            gap: 8px !important;
-            padding: 8px 4px 12px !important;
+            gap: 12px !important;
+            padding: 10px 4px 16px !important;
             scrollbar-width: thin !important;
             scrollbar-color: var(--border) transparent !important;
-            margin-bottom: 8px !important;
+            margin-bottom: 12px !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock::-webkit-scrollbar,
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"]::-webkit-scrollbar {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"]::-webkit-scrollbar,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"]::-webkit-scrollbar {{
             height: 4px;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock::-webkit-scrollbar-thumb,
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"]::-webkit-scrollbar-thumb {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"]::-webkit-scrollbar-thumb,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"]::-webkit-scrollbar-thumb {{
             background: var(--border);
             border-radius: 4px;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock > div,
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock > div > div,
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] div[data-testid="column"],
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] div[data-testid="column"] > div {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"] div[data-testid="column"],
+        div[data-testid="element-container"]:has(#nav-container-marker) + div + div[data-testid="stHorizontalBlock"] div[data-testid="column"],
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="stHorizontalBlock"]:first-of-type div[data-testid="column"],
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] [data-testid="column"] {{
             width: max-content !important;
             flex: 0 0 auto !important;
             min-width: max-content !important;
             padding: 0 !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"] button,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div + div[data-testid="stHorizontalBlock"] button,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="stHorizontalBlock"]:first-of-type button,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] button {{
             position: relative !important;
             display: inline-flex !important;
             align-items: center !important;
-            gap: 6px !important;
-            padding: 10px 20px !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            padding: 10px 22px !important;
             border-radius: 30px !important;
             font-size: 13.5px !important;
             font-weight: 600 !important;
             white-space: nowrap !important;
+            word-break: keep-all !important;
             transition: all .25s cubic-bezier(.4,0,.2,1) !important;
             border: 1.5px solid var(--border) !important;
             background: var(--card) !important;
             color: var(--text-soft) !important;
-            height: auto !important;
-            box-shadow: none !important;
-            transform: none !important;
+            height: 42px !important;
+            box-shadow: 0 2px 6px var(--shadow) !important;
             width: max-content !important;
             min-width: max-content !important;
+            transform: none !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button:hover {{
-            background: var(--nav-hover) !important;
-            color: var(--primary) !important;
-            border-color: var(--primary) !important;
-            transform: translateY(-1px) !important;
-            box-shadow: 0 4px 12px var(--shadow) !important;
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"] button:hover,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div + div[data-testid="stHorizontalBlock"] button:hover,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="stHorizontalBlock"]:first-of-type button:hover,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] button:hover {{
+            background: var(--accent-bg, var(--nav-hover)) !important;
+            color: var(--accent, var(--primary)) !important;
+            border-color: var(--accent, var(--primary)) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 18px var(--shadow-strong) !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[data-testid="baseButton-primary"],
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[kind="primary"] {{
-            background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"] button[data-testid="baseButton-primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"] button[kind="primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) + div + div[data-testid="stHorizontalBlock"] button[data-testid="baseButton-primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) + div + div[data-testid="stHorizontalBlock"] button[kind="primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="stHorizontalBlock"]:first-of-type button[data-testid="baseButton-primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="stHorizontalBlock"]:first-of-type button[kind="primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] button[data-testid="baseButton-primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] button[kind="primary"] {{
+            background: linear-gradient(135deg, var(--accent, var(--primary)), var(--accent-light, var(--primary-light))) !important;
             color: white !important;
             border-color: transparent !important;
             box-shadow: 0 4px 14px var(--shadow-strong) !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[data-testid="baseButton-primary"]::after,
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[kind="primary"]::after {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"] button[data-testid="baseButton-primary"]::after,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] button[data-testid="baseButton-primary"]::after {{
             content: "";
             position: absolute;
             left: 50%;
@@ -445,7 +482,8 @@ def load_app_css():
             transform: translateX(-50%);
             animation: navGlow 1.6s ease-in-out infinite;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button p {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="stHorizontalBlock"] button p,
+        div[data-testid="element-container"]:has(#nav-container-marker) ~ [data-testid="stHorizontalBlock"] button p {{
             color: inherit !important;
             font-weight: inherit !important;
             margin: 0 !important;

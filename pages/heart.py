@@ -8,6 +8,32 @@ from utils.pdf_generator import recommendations, generate_single_report_pdf
 from utils.recommendation_engine import get_recommendation
 
 def show():
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme == "Midnight Cosmic (Dark)":
+        accent_css = """
+        <style>
+        :root {
+            --accent: #FB7185;
+            --accent-light: #FDA4AF;
+            --accent-dark: #E11D48;
+            --accent-bg: rgba(251, 113, 131, 0.12);
+            --nav-hover: rgba(251, 113, 131, 0.15);
+        }
+        </style>
+        """
+    else:
+        accent_css = """
+        <style>
+        :root {
+            --accent: #E11D48;
+            --accent-light: #FB7185;
+            --accent-dark: #9F1239;
+            --accent-bg: rgba(225, 29, 72, 0.08);
+            --nav-hover: rgba(225, 29, 72, 0.08);
+        }
+        </style>
+        """
+    st.markdown(accent_css, unsafe_allow_html=True)
     st.header("❤️ Cardiovascular Disease Risk Screening")
 
     # ---- 1. Patient Selection / Info ----

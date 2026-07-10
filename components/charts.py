@@ -6,12 +6,12 @@ from datetime import datetime, timedelta
 import streamlit as st
 
 def _get_theme_colors():
-    theme = st.session_state.get("theme", "Cream & Evergreen")
-    if theme not in ["Cream & Evergreen", "Obsidian & Gold"]:
-        theme = "Cream & Evergreen"
-    is_dark = (theme == "Obsidian & Gold")
-    text_color = "#F0F6FC" if is_dark else "#0D2C24"
-    grid_color = "rgba(240, 246, 252, 0.1)" if is_dark else "#EAE6DF"
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme not in ["Ethereal Silk (Light)", "Midnight Cosmic (Dark)"]:
+        theme = "Ethereal Silk (Light)"
+    is_dark = (theme == "Midnight Cosmic (Dark)")
+    text_color = "#CBD5E1" if is_dark else "#0F172A"
+    grid_color = "rgba(139, 92, 246, 0.15)" if is_dark else "#E2E8F0"
     return text_color, grid_color
 
 def draw_risk_gauge(risk_percent, title="Risk Probability Indicator"):

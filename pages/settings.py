@@ -7,8 +7,8 @@ def show():
     st.write("Customize your Lifecare interface preferences, notification alerts, and localization rules.")
 
     # Theme selection
-    current_theme = st.session_state.get("theme", "Cream & Evergreen")
-    theme_opts = ["Cream & Evergreen", "Obsidian & Gold"]
+    current_theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    theme_opts = ["Ethereal Silk (Light)", "Midnight Cosmic (Dark)"]
     theme_index = theme_opts.index(current_theme) if current_theme in theme_opts else 0
     
     st.subheader("Visual Theme Selection")

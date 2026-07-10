@@ -7,6 +7,8 @@ from utils.logger import get_logger
 
 logger = get_logger("utils.auth")
 LOGIN_URL = os.getenv("LOGIN_URL", "http://localhost:5000")
+if LOGIN_URL and not LOGIN_URL.startswith(("http://", "https://")):
+    LOGIN_URL = "https://" + LOGIN_URL
 
 def init_session():
     """Initialize all session state variables."""

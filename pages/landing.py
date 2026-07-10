@@ -5,6 +5,8 @@ import os
 
 def show():
     login_url = os.getenv("LOGIN_URL", "http://localhost:5000")
+    if login_url and not login_url.startswith(("http://", "https://")):
+        login_url = "https://" + login_url
     # Hero Section (Split Layout)
     col_text, col_img = st.columns([1.1, 0.9])
     

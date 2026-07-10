@@ -8,54 +8,63 @@ import streamlit as st
 
 def load_app_css():
     """Load all application-wide CSS styles dynamically depending on theme."""
-    theme = st.session_state.get("theme", "Cream & Evergreen")
-    if theme not in ["Cream & Evergreen", "Obsidian & Gold"]:
-        theme = "Cream & Evergreen"
-        st.session_state["theme"] = "Cream & Evergreen"
+    theme = st.session_state.get("theme", "Ethereal Silk (Light)")
+    if theme not in ["Ethereal Silk (Light)", "Midnight Cosmic (Dark)"]:
+        theme = "Ethereal Silk (Light)"
+        st.session_state["theme"] = "Ethereal Silk (Light)"
 
     # ---- Theme design tokens (CSS variables) ----
-    # Cream & Evergreen is the default; Obsidian & Gold overrides it.
+    # Ethereal Silk (Light) is the default; Midnight Cosmic (Dark) overrides it.
     tokens = """
         :root {
-            --bg: #FAF9F5;
-            --card: #FFFFFF;
-            --border: #EAE6DF;
-            --text: #0D2C24;
-            --text-soft: #5C6E6A;
-            --text-body: #3B4B47;
-            --primary: #0B4A3C;
-            --primary-light: #187561;
-            --primary-dark: #05261F;
-            --info: #1D4ED8;
-            --info-bg: #EFF6FF;
-            --success: #15803D;
-            --success-bg: #F0FDF4;
-            --warning: #B45309;
-            --warning-bg: #FEF3C7;
-            --danger: #B91C1C;
-            --danger-bg: #FEF2F2;
-            --purple: #6D28D9;
-            --purple-bg: #F5F3FF;
-            --accent: #D97706;
-            --accent-bg: #FEF3C7;
-            --nav-hover: rgba(11, 74, 60, 0.05);
-            --shadow: rgba(11, 74, 60, 0.04);
-            --shadow-strong: rgba(11, 74, 60, 0.09);
+            --bg: #F8FAFC;
+            --bg-gradient: radial-gradient(circle at 5% 5%, rgba(20, 184, 166, 0.08) 0%, rgba(255, 255, 255, 0) 50%),
+                           radial-gradient(circle at 95% 95%, rgba(99, 102, 241, 0.06) 0%, rgba(255, 255, 255, 0) 50%),
+                           linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card: rgba(255, 255, 255, 0.85);
+            --border: rgba(226, 232, 240, 0.8);
+            --text: #0F172A;
+            --text-soft: #64748B;
+            --text-body: #334155;
+            --primary: #0D9488;
+            --primary-light: #14B8A6;
+            --primary-dark: #115E59;
+            --info: #3B82F6;
+            --info-bg: rgba(59, 130, 246, 0.08);
+            --success: #10B981;
+            --success-bg: rgba(16, 185, 129, 0.08);
+            --warning: #F59E0B;
+            --warning-bg: rgba(245, 158, 11, 0.08);
+            --danger: #EF4444;
+            --danger-bg: rgba(239, 68, 68, 0.08);
+            --purple: #8B5CF6;
+            --purple-bg: rgba(139, 92, 246, 0.08);
+            --accent: #F59E0B;
+            --accent-bg: rgba(245, 158, 11, 0.08);
+            --nav-hover: rgba(13, 148, 136, 0.08);
+            --shadow: rgba(15, 23, 42, 0.04);
+            --shadow-strong: rgba(15, 23, 42, 0.08);
+            --sidebar-bg: linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 100%);
+            --sidebar-text: #334155;
+            --sidebar-text-soft: #64748B;
         }
     """
 
-    if theme == "Obsidian & Gold":
+    if theme == "Midnight Cosmic (Dark)":
         tokens = """
             :root {
-                --bg: #0A0D10;
-                --card: rgba(19, 23, 28, 0.95);
-                --border: rgba(212, 163, 115, 0.16);
-                --text: #F3F4F6;
-                --text-soft: #9CA3AF;
-                --text-body: #D1D5DB;
-                --primary: #2DD4BF;
-                --primary-light: #5EEAD4;
-                --primary-dark: #0F3A33;
+                --bg: #0B0F19;
+                --bg-gradient: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0) 45%),
+                               radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.1) 0%, rgba(15, 23, 42, 0) 50%),
+                               linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+                --card: rgba(17, 24, 39, 0.75);
+                --border: rgba(139, 92, 246, 0.2);
+                --text: #F8FAFC;
+                --text-soft: #94A3B8;
+                --text-body: #CBD5E1;
+                --primary: #8B5CF6;
+                --primary-light: #A78BFA;
+                --primary-dark: #4C1D95;
                 --info: #60A5FA;
                 --info-bg: rgba(96, 165, 250, 0.12);
                 --success: #34D399;
@@ -64,13 +73,16 @@ def load_app_css():
                 --warning-bg: rgba(245, 158, 11, 0.12);
                 --danger: #F87171;
                 --danger-bg: rgba(248, 113, 113, 0.12);
-                --purple: #A78BFA;
-                --purple-bg: rgba(167, 139, 250, 0.12);
-                --accent: #D4A373;
-                --accent-bg: rgba(212, 163, 115, 0.12);
-                --nav-hover: rgba(255, 255, 255, 0.05);
-                --shadow: rgba(0, 0, 0, 0.4);
-                --shadow-strong: rgba(0, 0, 0, 0.65);
+                --purple: #C084FC;
+                --purple-bg: rgba(192, 132, 252, 0.12);
+                --accent: #F59E0B;
+                --accent-bg: rgba(245, 158, 11, 0.12);
+                --nav-hover: rgba(139, 92, 246, 0.15);
+                --shadow: rgba(0, 0, 0, 0.3);
+                --shadow-strong: rgba(0, 0, 0, 0.5);
+                --sidebar-bg: linear-gradient(180deg, #111827 0%, #0B0F19 100%);
+                --sidebar-text: #CBD5E1;
+                --sidebar-text-soft: #94A3B8;
             }
         """
 
@@ -227,7 +239,8 @@ def load_app_css():
         }}
 
         .stApp {{
-            background-color: var(--bg) !important;
+            background: var(--bg-gradient) !important;
+            background-attachment: fixed !important;
             color: var(--text) !important;
             animation: fadeIn 0.4s ease-out;
         }}
@@ -355,9 +368,9 @@ def load_app_css():
             color: var(--primary);
         }}
 
-        /* ---- Horizontal Nav Pill Bar (Native Streamlit Columns Override) ---- */
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] {{
+        /* ---- Horizontal Nav Pill Bar (Adjacent Sibling Override) ---- */
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] {{
             display: flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
@@ -365,30 +378,29 @@ def load_app_css():
             gap: 8px !important;
             padding: 8px 4px 12px !important;
             scrollbar-width: thin !important;
-            scrollbar-color: #c8d8e0 transparent !important;
+            scrollbar-color: var(--border) transparent !important;
             margin-bottom: 8px !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock::-webkit-scrollbar,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"]::-webkit-scrollbar {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock::-webkit-scrollbar,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"]::-webkit-scrollbar {{
             height: 4px;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock::-webkit-scrollbar-thumb,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"]::-webkit-scrollbar-thumb {{
-            background: #c8d8e0;
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock::-webkit-scrollbar-thumb,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"]::-webkit-scrollbar-thumb {{
+            background: var(--border);
             border-radius: 4px;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock > div,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock > div > div,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] div[data-testid="column"],
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] div[data-testid="column"] > div {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock > div,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div.stHorizontalBlock > div > div,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] div[data-testid="column"],
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] div[data-testid="column"] > div {{
             width: max-content !important;
             flex: 0 0 auto !important;
             min-width: max-content !important;
             padding: 0 !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock button,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] button {{
-            position: relative;
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button {{
+            position: relative !important;
             display: inline-flex !important;
             align-items: center !important;
             gap: 6px !important;
@@ -407,25 +419,22 @@ def load_app_css():
             width: max-content !important;
             min-width: max-content !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock button:hover,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] button:hover {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button:hover {{
             background: var(--nav-hover) !important;
             color: var(--primary) !important;
-            border-color: color-mix(in srgb, var(--primary) 30%, transparent) !important;
+            border-color: var(--primary) !important;
             transform: translateY(-1px) !important;
-            box-shadow: 0 4px 12px var(--shadow);
+            box-shadow: 0 4px 12px var(--shadow) !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock button[data-testid="baseButton-primary"],
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock button[kind="primary"],
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] button[data-testid="baseButton-primary"],
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] button[kind="primary"] {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[data-testid="baseButton-primary"],
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[kind="primary"] {{
             background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
             color: white !important;
             border-color: transparent !important;
             box-shadow: 0 4px 14px var(--shadow-strong) !important;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock button[data-testid="baseButton-primary"]::after,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] button[data-testid="baseButton-primary"]::after {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[data-testid="baseButton-primary"]::after,
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button[kind="primary"]::after {{
             content: "";
             position: absolute;
             left: 50%;
@@ -436,8 +445,7 @@ def load_app_css():
             transform: translateX(-50%);
             animation: navGlow 1.6s ease-in-out infinite;
         }}
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div.stHorizontalBlock button p,
-        div[data-testid="element-container"]:has(#nav-container-marker) ~ div[data-testid="element-container"] div[data-testid="stHorizontalBlock"] button p {{
+        div[data-testid="element-container"]:has(#nav-container-marker) + div[data-testid="element-container"] button p {{
             color: inherit !important;
             font-weight: inherit !important;
             margin: 0 !important;
@@ -475,19 +483,21 @@ def load_app_css():
 
         /* ---- Styled Sidebar ---- */
         section[data-testid="stSidebar"] {{
-            background: linear-gradient(180deg, #0a4c5c 0%, #0d3a47 100%) !important;
+            background: var(--sidebar-bg) !important;
+            border-right: 1px solid var(--border) !important;
         }}
         section[data-testid="stSidebar"] * {{
-            color: #d0e8f0 !important;
+            color: var(--sidebar-text) !important;
         }}
         section[data-testid="stSidebar"] .stButton>button {{
             background: linear-gradient(135deg, #dc2626, #ef4444) !important;
-            border: none;
-            box-shadow: 0 4px 12px rgba(220,38,38,.3);
+            color: white !important;
+            border: none !important;
+            box-shadow: 0 4px 12px rgba(220,38,38,.3) !important;
         }}
         section[data-testid="stSidebar"] .stButton>button:hover {{
             background: linear-gradient(135deg, #b91c1c, #dc2626) !important;
-            box-shadow: 0 6px 18px rgba(220,38,38,.4);
+            box-shadow: 0 6px 18px rgba(220,38,38,.4) !important;
         }}
 
         /* Floating Sidebar Toggle and Collapse Buttons */
@@ -531,26 +541,26 @@ def load_app_css():
             width: 72px;
             height: 72px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1AA7C8, #0F6E84);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+            color: white !important;
             font-size: 28px;
             font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 14px;
-            box-shadow: 0 4px 16px rgba(15,110,132,.3);
-            border: 3px solid rgba(255,255,255,.2);
+            box-shadow: 0 4px 16px var(--shadow-strong) !important;
+            border: 3px solid rgba(255,255,255,.2) !important;
         }}
         .sidebar-name {{
             font-size: 18px;
             font-weight: 700;
-            color: white !important;
+            color: var(--sidebar-text) !important;
             margin: 0 0 4px;
         }}
         .sidebar-email {{
             font-size: 12px;
-            color: #8cb8c8 !important;
+            color: var(--sidebar-text-soft) !important;
             margin: 0 0 12px;
         }}
         .sidebar-role-badge {{
@@ -559,9 +569,9 @@ def load_app_css():
             border-radius: 999px;
             font-size: 12px;
             font-weight: 700;
-            background: rgba(26,167,200,.2);
-            color: #7dd3e8 !important;
-            border: 1px solid rgba(26,167,200,.3);
+            background: var(--nav-hover) !important;
+            color: var(--primary) !important;
+            border: 1px solid var(--border) !important;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }}
@@ -652,17 +662,24 @@ def load_app_css():
         .stTabs [data-baseweb="tab"] {{
             transition: all .2s ease;
             border-radius: 10px 10px 0 0;
-            color: var(--text-soft) !important;
             background-color: transparent !important;
         }}
-        .stTabs [data-baseweb="tab"]:hover {{
-            color: var(--text) !important;
-            background-color: var(--nav-hover) !important;
+        .stTabs [data-baseweb="tab"] p,
+        .stTabs [data-baseweb="tab"] span,
+        .stTabs [data-baseweb="tab"] div {{
+            color: var(--text-soft) !important;
+            transition: all .2s ease;
         }}
-        .stTabs [data-baseweb="tab"][aria-selected="true"] {{
+        .stTabs [data-baseweb="tab"]:hover p,
+        .stTabs [data-baseweb="tab"]:hover span,
+        .stTabs [data-baseweb="tab"]:hover div {{
+            color: var(--text) !important;
+        }}
+        .stTabs [data-baseweb="tab"][aria-selected="true"] p,
+        .stTabs [data-baseweb="tab"][aria-selected="true"] span,
+        .stTabs [data-baseweb="tab"][aria-selected="true"] div {{
             color: var(--primary) !important;
-            font-weight: 700;
-            background-color: var(--nav-hover) !important;
+            font-weight: 700 !important;
         }}
         .stTabs [data-baseweb="tab-highlight"] {{
             background-color: var(--primary) !important;
@@ -721,7 +738,7 @@ def load_app_css():
 
     # ---- Dark mode: remap legacy hard-coded colours still present in inline
     #      HTML strings (fixes light-on-light invisible text) ----
-    if theme == "Obsidian & Gold":
+    if theme == "Midnight Cosmic (Dark)":
         dark_remap = """
         <style>
             [style*="color:#0F3D4F"], [style*="color: #0F3D4F"] { color: var(--text) !important; }
